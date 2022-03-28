@@ -34,12 +34,17 @@ export default function StateOfWebDevelopment() {
 
       <p>
         Each component should encapsulate its own logic and style. Each
-        component should only be loaded when it's needed. Each component should
-        perform one job and do it well. Functions of the component that are not
-        needed straight away should also be loaded only when needed.
+        component should perform one job and do it well. All code, be it JS,
+        HTML, CSS, should contain only the pieces that are needed at that
+        particular moment. Everything else should be lazy-loaded.
       </p>
 
       <p>That's it. This is all what it takes to create a good website.</p>
+
+      <p>
+        The web developer ecosystem has been ripening for the past years. It's a
+        good time to be creating.
+      </p>
     </div>
   );
 }
