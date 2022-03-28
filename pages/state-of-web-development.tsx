@@ -42,9 +42,17 @@ export default function StateOfWebDevelopment() {
       <p>That's it. This is all what it takes to create a good website.</p>
 
       <p>
-        The web developer ecosystem has been ripening for the past years. It's a
-        good time to be creating.
+        The web developer ecosystem has been ripening for the past years. There
+        are a lot of frameworks that generate quality HTML. And I'm only talking
+        about JS based frameworks like Next, Nuxt, SvelteKit, Remix, Gatsby,
+        Hugo, Jekyll, Elder etc. Some of them are more optimised for
+        static-site-generation, others are great for hybrid SSG-SSR
+        applications, others are full blown full-stack application frameworks.
       </p>
     </div>
   );
 }
+
+// export const config = {
+//   unstable_runtimeJS: false,
+// };
