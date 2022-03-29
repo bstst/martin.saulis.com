@@ -1,7 +1,7 @@
 export default function StateOfWebDevelopment() {
   return (
     <div>
-      <h1>State of Web Development</h1>
+      <h1>State of Web Development!</h1>
 
       <p>
         A simplest website is a <a href="/hello.txt">text file</a> opened in the
