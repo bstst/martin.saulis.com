@@ -52,7 +52,3 @@ export default function StateOfWebDevelopment() {
     </div>
   );
 }
-
-// export const config = {
-//   unstable_runtimeJS: false,
-// };
