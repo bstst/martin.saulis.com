@@ -19,4 +19,4 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "martin-saulis-com"
-          entrypoint: "./main.ts" # TODO(bstst): update
+          entrypoint: "./src/main.tsx"
