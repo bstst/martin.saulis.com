@@ -1,7 +1,15 @@
+import Foo from "~/components/Foo";
+import { useMatches } from "@remix-run/react/components";
+
 export default function StateOfWebDevelopment() {
+  // const d = useMatches();
+  // console.log(d);
+
   return (
     <div>
       <h1>State of Web Development!</h1>
+
+      <Foo />
 
       <p>
         A simplest website is a <a href="/hello.txt">text file</a> opened in the
