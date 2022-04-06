@@ -4,30 +4,50 @@
 /// <reference lib="dom.asynciterable" />
 /// <reference lib="deno.ns" />
 
-import { serve } from "https://deno.land/std@0.114.0/http/server.ts";
-import { h, renderSSR } from "https://deno.land/x/nano_jsx@v0.0.20/mod.ts";
+import { serve } from "https://deno.land/std@0.133.0/http/server.ts";
+import { router } from "https://crux.land/router@0.0.11";
+import { h, ssr } from "https://crux.land/nanossr@0.0.4";
 
-function App() {
+function App({ children }) {
   return (
-    <html>
-    <head>
-      <title>Hello from JSX</title>
-    </head>
-    <body>
-    <h1>Hello world</h1>
-    </body>
-    </html>
+    <div class="min-h-screen">
+      <NavBar />
+      {children}
+    </div>
   );
 }
 
-function handler() {
-  const html = renderSSR(<App />);
-  return new Response(html, {
-    headers: {
-      "content-type": "text/html",
-    },
-  });
+function NavBar() {
+  return <div>
+    <a href="/" class="m-4">/</a>
+    <a href="/foo" class="m-4">foo</a>
+    <a href="/bar" class="m-4">bar</a>
+  </div>
 }
 
-console.log("Listening on http://localhost:8000");
-serve(handler);
+function Landing() {
+  return <div>/</div>
+}
+
+function Foo() {
+  return <div>Foo</div>
+}
+
+function Bar() {
+  return <div>Bar</div>
+}
+
+function NotFound() {
+  return <div>404</div>
+}
+
+const render = (component) => ssr(() => <App>{component}</App>);
+
+serve(router(
+  {
+    "/": () => render(<Landing />),
+    "/foo": () => render(<Foo />),
+    "/bar": () => render(<Bar />),
+  },
+  () => render(<NotFound />),
+));
